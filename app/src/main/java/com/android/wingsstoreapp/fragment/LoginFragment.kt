@@ -41,6 +41,9 @@ class LoginFragment : BaseFragment<LoginViewModel, LoginLayoutBinding>() {
                     binding.txtPassword.text.toString()
                 )
             )
+            findNavController().navigate(
+                LoginFragmentDirections.loginFragmentToLoadingFragment()
+            )
         }
 
         binding.txtRegister.setOnClickListener {

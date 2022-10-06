@@ -1,5 +1,6 @@
 package com.android.wingsstoreapp.fragment
 
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.android.common.BaseFragment
@@ -9,7 +10,7 @@ import com.android.wingsstoreapp.view_model.ProductDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProductDetailFragment: BaseFragment<ProductDetailViewModel, ProductDetailLayoutBinding>() {
+class ProductDetailFragment : BaseFragment<ProductDetailViewModel, ProductDetailLayoutBinding>() {
     override val vm: ProductDetailViewModel by viewModels()
     override val layoutResourceId: Int = R.layout.product_detail_layout
 
@@ -21,6 +22,15 @@ class ProductDetailFragment: BaseFragment<ProductDetailViewModel, ProductDetailL
         binding.productDetailName.text = navArgs.product.productName
         binding.productDimensionDetail.text = navArgs.product.dimension
         binding.productUnitDetail.text = navArgs.product.unit
-        binding.productPriceDetail.text = "Rp. ${navArgs.product.price}"
+        binding.productPriceDetail.text =
+            "Rp. ${navArgs.product.price - (navArgs.product.price * navArgs.product.discount / 100)}"
+
+
+        binding.btnBuy.setOnClickListener {
+
+            vm.insertProductCheckout(navArgs.product.productCode)
+            Toast.makeText(requireContext(), "Produk Telah di Tambahkan", 1).show()
+
+        }
     }
 }

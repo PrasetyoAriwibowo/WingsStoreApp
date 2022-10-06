@@ -4,21 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.android.api_service.service.dao.CheckoutDao
 import com.android.api_service.service.dao.LoginDao
 import com.android.api_service.service.dao.ProductDao
-import com.android.common.entity.LoginEntity
-import com.android.common.entity.ProductEntity
-import com.android.common.entity.TransactionDetailEntity
-import com.android.common.entity.TransactionHeaderEntity
+import com.android.common.entity.*
 
 @Database(
     entities = [LoginEntity::class, ProductEntity::class, TransactionHeaderEntity::class,
-        TransactionDetailEntity::class], version = 1, exportSchema = false
+        TransactionDetailEntity::class, CheckoutEntity::class], version = 1, exportSchema = false
 )
 abstract class WingsStoreDatabase: RoomDatabase() {
 
     abstract fun loginDao(): LoginDao
     abstract fun productDao(): ProductDao
+    abstract fun checkoutDao(): CheckoutDao
 
     companion object{
         @Volatile

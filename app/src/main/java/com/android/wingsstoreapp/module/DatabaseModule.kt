@@ -27,5 +27,9 @@ class DatabaseModule {
 
     @Provides
     @Singleton
+    fun providesCheckoutDao(wingsStoreDatabase: WingsStoreDatabase) = wingsStoreDatabase.checkoutDao()
+
+    @Provides
+    @Singleton
     fun providesExecutor() = AppExecutors()
 }

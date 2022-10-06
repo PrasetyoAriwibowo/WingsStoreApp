@@ -17,6 +17,10 @@
             android:id="@+id/loginFragment_to_productFragment"
             app:destination="@id/productFragment" />
 
+        <action
+            android:id="@+id/loginFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -42,12 +46,15 @@
         <argument
             android:name="product"
             app:argType="com.android.common.entity.ProductEntity"/>
-
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.android.wingsstoreapp.fragment.checkout.CheckoutFragment"
         android:label="CheckoutFragment" />
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.android.wingsstoreapp.fragment.LoadingFragment"
+        android:label="LoadingFragment" />
 
 
 </navigation>

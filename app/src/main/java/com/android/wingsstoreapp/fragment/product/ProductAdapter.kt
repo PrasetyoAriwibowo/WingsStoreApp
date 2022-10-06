@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.android.common.entity.CheckoutEntity
 import com.android.common.entity.ProductEntity
 import com.android.wingsstoreapp.databinding.ProductItemLayoutBinding
 
-class ProductAdapter(val navigate: (ProductEntity)-> Unit) : RecyclerView.Adapter<ProductViewHolder>() {
+class ProductAdapter(val navigate: (ProductEntity)-> Unit, val insertProducttoCheckout:(CheckoutEntity)->Unit) : RecyclerView.Adapter<ProductViewHolder>() {
 
     private val differ = AsyncListDiffer<ProductEntity>(this, itemCallBack)
 
@@ -36,6 +37,10 @@ class ProductAdapter(val navigate: (ProductEntity)-> Unit) : RecyclerView.Adapte
 
         holder.binding.constraintProduct.setOnClickListener {
             navigate(data)
+        }
+
+        holder.binding.btnAddProduct.setOnClickListener {
+            insertProducttoCheckout(CheckoutEntity(data.productCode, 1))
         }
     }
 

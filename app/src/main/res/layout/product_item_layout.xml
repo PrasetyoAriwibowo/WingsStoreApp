@@ -79,7 +79,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/button_shape"
                     android:fontFamily="@font/poppinsbold"
-                    android:text="Add"
+                    android:text="Buy"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintTop_toBottomOf="@id/productPrice"
