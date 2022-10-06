@@ -25,11 +25,7 @@
                 app:spanCount="1"
                 tools:listitem="@layout/product_item_layout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 2008471 (Initial commit)
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCheckout"
             android:layout_width="270dp"
