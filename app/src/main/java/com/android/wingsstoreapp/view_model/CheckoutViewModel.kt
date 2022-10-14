@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.android.api_service.service.repository.CheckoutRepository
 import com.android.common.BaseViewModel
-import com.android.common.entity.CheckoutEntity
-import com.android.common.entity.ProductCheckout
-import com.android.common.entity.ProductEntity
+import com.android.common.entity.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +18,7 @@ class CheckoutViewModel @Inject constructor(
 ): BaseViewModel(application) {
 
     var checkoutData : LiveData<List<ProductCheckout>>? = null
-//    val totalData : MutableMap<ProductEntity, Double> = mutableMapOf()
+    val totalData : MutableMap<ProductCheckout, Double> = mutableMapOf()
 
     fun updatetProductCheckout(checkoutEntity: CheckoutEntity){
             checkoutRepository.updateQuantityProduct(checkoutEntity)
@@ -29,5 +27,11 @@ class CheckoutViewModel @Inject constructor(
     init {
         checkoutData = checkoutRepository.getProductCheckout()
     }
+
+    fun insertCheckouttoTransaction(){
+        checkoutRepository.insertCheckoutTransaction(totalData.keys.toList(),
+            checkoutRepository.getTotal(totalData.keys.toList()))
+    }
+
 
 }

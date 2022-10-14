@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.common.entity.CheckoutEntity
 import com.android.common.entity.ProductEntity
 import com.android.wingsstoreapp.databinding.ProductItemLayoutBinding
+import com.bumptech.glide.Glide
 
 class ProductAdapter(val navigate: (ProductEntity)-> Unit, val insertProducttoCheckout:(CheckoutEntity)->Unit) : RecyclerView.Adapter<ProductViewHolder>() {
 
@@ -31,9 +32,12 @@ class ProductAdapter(val navigate: (ProductEntity)-> Unit, val insertProducttoCh
             holder.binding.productPrice.text = "Rp. ${data.price}"
             holder.binding.productDiscount.visibility = View.GONE
         } else {
-            holder.binding.productPrice.text = "Rp. ${data.price-(data.price*data.discount/100)}"
-            holder.binding.productDiscount.text = data.price.toString()
+            holder.binding.productPrice.text = "Rp. ${data.price - (data.price * data.discount / 100)}"
+            holder.binding.productDiscount.text = "Rp. ${data.price}"
         }
+
+        Glide.with(holder.binding.imgProductList)
+            .load(data.photo).into(holder.binding.imgProductList)
 
         holder.binding.constraintProduct.setOnClickListener {
             navigate(data)

@@ -7,6 +7,7 @@ import com.android.common.BaseFragment
 import com.android.wingsstoreapp.R
 import com.android.wingsstoreapp.databinding.ProductDetailLayoutBinding
 import com.android.wingsstoreapp.view_model.ProductDetailViewModel
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +23,8 @@ class ProductDetailFragment : BaseFragment<ProductDetailViewModel, ProductDetail
         binding.productDetailName.text = navArgs.product.productName
         binding.productDimensionDetail.text = navArgs.product.dimension
         binding.productUnitDetail.text = navArgs.product.unit
+
+        Glide.with(binding.imgProductDetail).load(navArgs.product.photo).into(binding.imgProductDetail)
         binding.productPriceDetail.text =
             "Rp. ${navArgs.product.price - (navArgs.product.price * navArgs.product.discount / 100)}"
 

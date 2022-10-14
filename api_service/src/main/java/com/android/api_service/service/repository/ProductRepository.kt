@@ -2,6 +2,7 @@ package com.android.api_service.service.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import com.android.api_service.R
 import com.android.api_service.service.dao.ProductDao
 import com.android.common.entity.ProductEntity
 import com.android.common.ext.AppExecutors
@@ -27,18 +28,21 @@ class ProductRepository(
                             "IDR",
                             10.0,
                             "25cm x 15cm x 10cm",
-                            "Pcs"
+                            "Pcs",
+                            com.android.common.R.drawable.soklin_pewangi
+
                         )
                     )
                     productDao.insertProduct(
                         ProductEntity(
                             "GVB11",
                             "Giv Biru",
-                            11000.0,
+                            16000.0,
                             "IDR",
                             0.0,
-                            "10cm x 5cm x 3cm",
-                            "Pcs"
+                            "20cm x 10cm x 8cm",
+                            "Pcs",
+                            com.android.common.R.drawable.giv_biru
                         )
                     )
                     productDao.insertProduct(
@@ -49,18 +53,20 @@ class ProductRepository(
                             "IDR",
                             0.0,
                             "25cm x 15cm x 10cm",
-                            "Pcs"
+                            "Pcs",
+                            com.android.common.R.drawable.soklin_lq
                         )
                     )
                     productDao.insertProduct(
                         ProductEntity(
                             "GVK10",
                             "Giv Kuning",
-                            10000.0,
+                            14000.0,
                             "IDR",
                             0.0,
-                            "10cm x 5cm x 3cm",
-                            "Pcs"
+                            "20cm x 10cm x 8cm",
+                            "Pcs",
+                            com.android.common.R.drawable.giv_kuning
                         )
                     )
                 }

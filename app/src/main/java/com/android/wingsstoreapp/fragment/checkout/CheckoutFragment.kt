@@ -1,6 +1,8 @@
 package com.android.wingsstoreapp.fragment.checkout
 
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import com.android.api_service.service.repository.CheckoutRepository
 import com.android.common.BaseFragment
 import com.android.wingsstoreapp.R
 import com.android.wingsstoreapp.databinding.CheckoutLayoutBinding
@@ -23,8 +25,17 @@ class CheckoutFragment : BaseFragment<CheckoutViewModel, CheckoutLayoutBinding>(
         binding.rvCheckout.adapter = adapter
         vm.checkoutData?.observe(viewLifecycleOwner) {
             adapter.submitData(it)
+            it.forEach {
+                vm.totalData[it] = it.productEntity.price - (it.productEntity.price * it.productEntity.discount / 100)
+            }
 
             setTotal()
+        }
+
+
+        binding.btnConfirmCheckout.setOnClickListener {
+            vm.insertCheckouttoTransaction()
+            Toast.makeText(requireContext(), "Transaksi di Berhasil", 1).show()
         }
     }
 
@@ -36,5 +47,4 @@ class CheckoutFragment : BaseFragment<CheckoutViewModel, CheckoutLayoutBinding>(
         }
         binding.txtTotalPriceCheckout.text ="Rp. $total"
     }
-
 }

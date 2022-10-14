@@ -6,10 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "transactionDetail")
 data class TransactionDetailEntity (
-    @field:ColumnInfo(name = "documentCode")
-    val documentCode: String,
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @field:ColumnInfo(name = "documentCode")
+    val documentCode: Int,
+
     @field:ColumnInfo(name = "documentNumber")
     val documentNumber: String,
 

@@ -2,14 +2,18 @@ package com.android.api_service.service.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.android.common.entity.CheckoutEntity
-import com.android.common.entity.ProductCheckout
-import com.android.common.entity.ProductEntity
+import com.android.common.entity.*
 
 @Dao
 interface CheckoutDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertCheckout(checkoutEntity: CheckoutEntity)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertCheckouttoHeader(transactionHeaderEntity: TransactionHeaderEntity)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertCheckouttoDetail(transactionDetailEntity: List<TransactionDetailEntity>)
 
     @Query("SELECT * FROM checkout")
     fun getCheckout(): LiveData<List<ProductCheckout>>

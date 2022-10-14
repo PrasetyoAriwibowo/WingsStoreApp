@@ -2,6 +2,8 @@ package com.android.wingsstoreapp.module
 
 import android.content.Context
 import com.android.api_service.service.WingsStoreDatabase
+import com.android.api_service.service.preference.AuthDbService
+import com.android.api_service.service.preference.AuthDbServicePreference
 import com.android.common.ext.AppExecutors
 import dagger.Module
 import dagger.Provides
@@ -32,4 +34,9 @@ class DatabaseModule {
     @Provides
     @Singleton
     fun providesExecutor() = AppExecutors()
+
+    @Provides
+    @Singleton
+    fun provideAuthDbService(@ApplicationContext context: Context): AuthDbService =
+        AuthDbServicePreference(context)
 }

@@ -10,6 +10,8 @@ import com.android.common.entity.ProductCheckout
 import com.android.common.entity.ProductEntity
 import com.android.wingsstoreapp.databinding.CheckoutItemLayoutBinding
 
+import com.bumptech.glide.Glide
+
 class CheckoutAdapter(val setTotal: () -> Unit) : RecyclerView.Adapter<CheckoutViewHolder>() {
 
     val total = mutableMapOf<ProductEntity, Double>()
@@ -26,6 +28,10 @@ class CheckoutAdapter(val setTotal: () -> Unit) : RecyclerView.Adapter<CheckoutV
     override fun onBindViewHolder(holder: CheckoutViewHolder, position: Int) {
         val data = differ.currentList[position]
         holder.binding.data = data.productEntity
+
+        Glide.with(holder.binding.imgProductCheckout).load(data.productEntity.photo)
+            .into(holder.binding.imgProductCheckout)
+
         holder.binding.qtyProduct.setText("1")
 
         setTotal(

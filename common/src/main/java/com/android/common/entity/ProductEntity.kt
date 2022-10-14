@@ -1,5 +1,6 @@
 package com.android.common.entity
 
+import android.media.Image
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -29,5 +30,9 @@ data class ProductEntity (
     val dimension: String,
 
     @field:ColumnInfo(name = "unit")
-    val unit: String
+    val unit: String,
+
+    @field:ColumnInfo(name = "photo")
+    val photo: Int
+
     ): Parcelable

@@ -3,13 +3,15 @@ package com.android.common.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDateTime
 import java.util.*
 
 @Entity(tableName = "transactionHeader")
 data class TransactionHeaderEntity (
-    @PrimaryKey
+
+    @PrimaryKey(autoGenerate = true)
     @field:ColumnInfo(name = "documentCode")
-    val documentCode: String,
+    val documentCode: Int,
 
     @field:ColumnInfo(name = "documentNumber")
     val documentNumber: String,
