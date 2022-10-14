@@ -21,9 +21,12 @@ interface CheckoutDao {
     @Update(entity = CheckoutEntity::class)
     fun updateCheckout(checkoutEntity: CheckoutEntity)
 
+    @Query("SELECT * FROM product WHERE productCode = :productCode")
+    fun getProductCheckoutFromProduct(productCode: String): LiveData<ProductEntity>
+
     @Query("DELETE FROM checkout WHERE productCode = :productCode")
     fun deleteProductCheckout(productCode: String)
 
-    @Query("SELECT * FROM product WHERE productCode = :productCode")
-    fun getProductCheckoutFromProduct(productCode: String): LiveData<ProductEntity>
+    @Query("DELETE FROM checkout")
+    fun deleteAllProductCheckout()
 }

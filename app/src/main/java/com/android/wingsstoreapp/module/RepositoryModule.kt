@@ -18,8 +18,8 @@ import dagger.hilt.android.components.ViewModelComponent
 class RepositoryModule {
 
     @Provides
-    fun providesLoginRepository(loginDao: LoginDao, appExecutors: AppExecutors) =
-        LoginRepository(loginDao, appExecutors)
+    fun providesLoginRepository(loginDao: LoginDao, appExecutors: AppExecutors, authDbService: AuthDbService) =
+        LoginRepository(loginDao, appExecutors, authDbService)
 
     @Provides
     fun providesProductRepository(productDao: ProductDao, appExecutors: AppExecutors) =

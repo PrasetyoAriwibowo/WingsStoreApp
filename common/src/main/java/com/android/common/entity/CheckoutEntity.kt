@@ -12,5 +12,5 @@ class CheckoutEntity (
     val productCode: String,
 
     @field:ColumnInfo(name = "quantity")
-    val quantity : Int,
+    var quantity : Int,
 )

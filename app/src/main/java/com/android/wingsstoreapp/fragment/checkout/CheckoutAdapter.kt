@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.common.entity.ProductCheckout
 import com.android.common.entity.ProductEntity
 import com.android.wingsstoreapp.databinding.CheckoutItemLayoutBinding
-
 import com.bumptech.glide.Glide
 
-class CheckoutAdapter(val setTotal: () -> Unit) : RecyclerView.Adapter<CheckoutViewHolder>() {
+class CheckoutAdapter(val setTotal: () -> Unit, val deleteProductCheckout: (ProductCheckout) -> Unit) : RecyclerView.Adapter<CheckoutViewHolder>() {
 
     val total = mutableMapOf<ProductEntity, Double>()
     private val differ = AsyncListDiffer<ProductCheckout>(this, CheckoutAdapter.itemCallBack)
@@ -41,11 +40,17 @@ class CheckoutAdapter(val setTotal: () -> Unit) : RecyclerView.Adapter<CheckoutV
 
         holder.binding.qtyProduct.addTextChangedListener {
             var subTotal = if (!it.isNullOrEmpty())
+
                 (Integer.valueOf(it.toString())) * data.productEntity.price -
                         (data.productEntity.price * data.productEntity.discount / 100)
             else 0.0
             if (it.isNullOrEmpty() || it.equals("0")) {
-                holder.binding.qtyProduct.setText("1")
+                data.checkoutEntity.quantity = 1
+            } else {
+                data.checkoutEntity.quantity = it.toString().toInt()
+//                holder.binding.imgMinus.isEnabled = false
+                holder.binding.imgMinus.isEnabled = it.toString().toInt() > 1
+
             }
             holder.binding.subTotalProduct.text = "Rp. $subTotal"
 
@@ -54,6 +59,22 @@ class CheckoutAdapter(val setTotal: () -> Unit) : RecyclerView.Adapter<CheckoutV
             setTotal()
         }
         holder.binding.qtyProduct.setText(data.checkoutEntity.quantity.toString())
+
+        holder.binding.imgAdd.setOnClickListener {
+            data.checkoutEntity.quantity += 1
+            holder.binding.qtyProduct.setText(data.checkoutEntity.quantity.toString())
+
+        }
+
+        holder.binding.imgMinus.setOnClickListener {
+            data.checkoutEntity.quantity -= 1
+            holder.binding.qtyProduct.setText(data.checkoutEntity.quantity.toString())
+        }
+
+        holder.binding.imgDelete.setOnClickListener {
+            deleteProductCheckout(data)
+        }
+
     }
 
     fun setTotal(productEntity: ProductEntity, subTotal: Double) {

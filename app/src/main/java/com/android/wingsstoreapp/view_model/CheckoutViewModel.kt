@@ -33,5 +33,17 @@ class CheckoutViewModel @Inject constructor(
             checkoutRepository.getTotal(totalData.keys.toList()))
     }
 
+    fun deleteCheckout(productCheckout: ProductCheckout){
+        viewModelScope.launch {
+            checkoutRepository.deleteProductCheckout(productCheckout.checkoutEntity)
+        }
+    }
+
+    fun deleteAllCheckout(){
+        viewModelScope.launch {
+            checkoutRepository.deleteAllProductCheckout()
+        }
+    }
+
 
 }

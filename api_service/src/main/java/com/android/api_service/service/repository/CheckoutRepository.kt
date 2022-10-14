@@ -82,4 +82,16 @@ class CheckoutRepository(
             checkoutDao.insertCheckouttoDetail(transactionDetail)
         }
     }
+
+    fun deleteProductCheckout(checkoutEntity: CheckoutEntity){
+        appExecutors.diskIO.execute{
+            checkoutDao.deleteProductCheckout(checkoutEntity.productCode)
+        }
+    }
+
+    fun deleteAllProductCheckout(){
+        appExecutors.diskIO.execute{
+            checkoutDao.deleteAllProductCheckout()
+        }
+    }
 }
