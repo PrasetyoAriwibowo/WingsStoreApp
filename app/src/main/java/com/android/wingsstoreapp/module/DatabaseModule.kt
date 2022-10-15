@@ -33,6 +33,10 @@ class DatabaseModule {
 
     @Provides
     @Singleton
+    fun providesTransactionDao(wingsStoreDatabase: WingsStoreDatabase) = wingsStoreDatabase.transactionDao()
+
+    @Provides
+    @Singleton
     fun providesExecutor() = AppExecutors()
 
     @Provides

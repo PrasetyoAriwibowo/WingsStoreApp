@@ -8,6 +8,7 @@ import com.android.common.entity.*
 import com.android.common.ext.AppExecutors
 import com.ashokvarma.gander.internal.data.TransactionDao
 import java.time.LocalDateTime
+import kotlin.random.Random
 
 class CheckoutRepository(
     private val checkoutDao: CheckoutDao,
@@ -53,12 +54,13 @@ class CheckoutRepository(
         val documentCode = 0
         val transactionDetail = arrayListOf<TransactionDetailEntity>()
         val date = LocalDateTime.now().toString()
+        val number = Random.nextInt() + 3
 
         checkoutList.forEach {
             transactionDetail.add(
                 TransactionDetailEntity(
                     documentCode,
-                    "DCNB${documentCode}",
+                    "DCNB${documentCode + number}",
                     it.productEntity.productCode,
                     getPriceDiscount(it.productEntity.price, it.productEntity.discount),
                     it.checkoutEntity.quantity,
@@ -73,7 +75,7 @@ class CheckoutRepository(
             checkoutDao.insertCheckouttoHeader(
                 TransactionHeaderEntity(
                     documentCode,
-                    "DCNB${documentCode}",
+                    "DCNB${documentCode + number + 3}",
                     authDbService.getUser(),
                     total,
                     date

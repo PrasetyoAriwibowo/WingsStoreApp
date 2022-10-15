@@ -2,6 +2,7 @@ package com.android.wingsstoreapp.fragment.checkout
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.android.api_service.service.repository.CheckoutRepository
 import com.android.common.BaseFragment
 import com.android.common.entity.CheckoutEntity
@@ -41,7 +42,13 @@ class CheckoutFragment : BaseFragment<CheckoutViewModel, CheckoutLayoutBinding>(
             vm.insertCheckouttoTransaction()
             vm.deleteAllCheckout()
 
-            Toast.makeText(requireContext(), "Transaksi di Berhasil", 1).show()
+            Toast.makeText(requireContext(), "Transaksi Berhasil", 1).show()
+        }
+
+        binding.imgHistoryTransaction.setOnClickListener {
+            findNavController().navigate(
+                CheckoutFragmentDirections.checkoutFragmentToTransactionFragment()
+            )
         }
 
     }

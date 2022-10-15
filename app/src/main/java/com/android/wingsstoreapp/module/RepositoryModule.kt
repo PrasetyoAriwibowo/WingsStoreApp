@@ -3,10 +3,12 @@ package com.android.wingsstoreapp.module
 import com.android.api_service.service.dao.CheckoutDao
 import com.android.api_service.service.dao.LoginDao
 import com.android.api_service.service.dao.ProductDao
+import com.android.api_service.service.dao.TransactionDao
 import com.android.api_service.service.preference.AuthDbService
 import com.android.api_service.service.repository.CheckoutRepository
 import com.android.api_service.service.repository.LoginRepository
 import com.android.api_service.service.repository.ProductRepository
+import com.android.api_service.service.repository.TransactionRepository
 import com.android.common.ext.AppExecutors
 import dagger.Module
 import dagger.Provides
@@ -28,4 +30,8 @@ class RepositoryModule {
     @Provides
     fun providesCheckoutRepository(checkoutDao: CheckoutDao, appExecutors: AppExecutors, authDbService: AuthDbService) =
         CheckoutRepository(checkoutDao, appExecutors, authDbService)
+
+    @Provides
+    fun providesTransactionRepository(transactionDao: TransactionDao) =
+        TransactionRepository(transactionDao)
 }

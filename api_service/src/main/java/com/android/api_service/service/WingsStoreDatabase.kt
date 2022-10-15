@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import com.android.api_service.service.dao.CheckoutDao
 import com.android.api_service.service.dao.LoginDao
 import com.android.api_service.service.dao.ProductDao
+import com.android.api_service.service.dao.TransactionDao
 import com.android.common.entity.*
 
 @Database(
@@ -18,6 +19,7 @@ abstract class WingsStoreDatabase: RoomDatabase() {
     abstract fun loginDao(): LoginDao
     abstract fun productDao(): ProductDao
     abstract fun checkoutDao(): CheckoutDao
+    abstract fun transactionDao() : TransactionDao
 
     companion object{
         @Volatile

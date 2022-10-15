@@ -50,7 +50,17 @@
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.android.wingsstoreapp.fragment.checkout.CheckoutFragment"
-        android:label="CheckoutFragment" />
+        android:label="CheckoutFragment" >
+        <action
+            android:id="@+id/checkoutFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.android.wingsstoreapp.fragment.transaction.TransactionFragment"
+        android:label="TransactionFragment">
+
+    </fragment>
     <fragment
         android:id="@+id/loadingFragment"
         android:name="com.android.wingsstoreapp.fragment.LoadingFragment"

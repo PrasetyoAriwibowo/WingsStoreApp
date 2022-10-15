@@ -3,17 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/drawable/button_shape.xml" value="0.1" />
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/checkout_item_layout.xml" value="0.176" />
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/checkout_layout.xml" value="0.2" />
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/loading_layout.xml" value="0.1265625" />
-<<<<<<< HEAD
-        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/product_item_layout.xml" value="0.27447916666666666" />
-=======
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/product_detail_layout.xml" value="0.1171875" />
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/product_item_layout.xml" value="0.176" />
->>>>>>> 563da34 (Initial commit)
+        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/product_list_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/register_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/splash_layout.xml" value="0.136" />
+        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/transaction_detail_layout.xml" value="0.1" />
+        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/transaction_detail_list_layout.xml" value="0.2" />
+        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/transaction_item_layout.xml" value="0.264" />
+        <entry key="..\:/BITC/Android/TEST Wings/WingsStoreApp/app/src/main/res/layout/transaction_list_layout.xml" value="0.1802536231884058" />
         <entry key="..\:/BITC/Android/WingsStoreApp/app/src/main/res/drawable/button_shape.xml" value="0.1" />
         <entry key="..\:/BITC/Android/WingsStoreApp/app/src/main/res/drawable/discount_shape.xml" value="0.109" />
         <entry key="..\:/BITC/Android/WingsStoreApp/app/src/main/res/layout/checkout_item_layour.xml" value="0.2734375" />

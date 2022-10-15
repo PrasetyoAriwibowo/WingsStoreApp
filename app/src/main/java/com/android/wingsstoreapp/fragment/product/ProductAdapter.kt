@@ -11,7 +11,9 @@ import com.android.common.entity.ProductEntity
 import com.android.wingsstoreapp.databinding.ProductItemLayoutBinding
 import com.bumptech.glide.Glide
 
-class ProductAdapter(val navigate: (ProductEntity)-> Unit, val insertProducttoCheckout:(CheckoutEntity)->Unit) : RecyclerView.Adapter<ProductViewHolder>() {
+class ProductAdapter(
+    val navigate: (ProductEntity) -> Unit, val insertProducttoCheckout: (CheckoutEntity) -> Unit
+) : RecyclerView.Adapter<ProductViewHolder>() {
 
     private val differ = AsyncListDiffer<ProductEntity>(this, itemCallBack)
 
@@ -28,11 +30,12 @@ class ProductAdapter(val navigate: (ProductEntity)-> Unit, val insertProducttoCh
         val data = differ.currentList[position]
         holder.binding.data = data
 
-        if (data.discount.toString().equals("0.0")){
+        if (data.discount.toString().equals("0.0")) {
             holder.binding.productPrice.text = "Rp. ${data.price}"
             holder.binding.productDiscount.visibility = View.GONE
         } else {
-            holder.binding.productPrice.text = "Rp. ${data.price - (data.price * data.discount / 100)}"
+            holder.binding.productPrice.text =
+                "Rp. ${data.price - (data.price * data.discount / 100)}"
             holder.binding.productDiscount.text = "Rp. ${data.price}"
         }
 
