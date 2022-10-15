@@ -54,7 +54,7 @@ class CheckoutRepository(
         val documentCode = 0
         val transactionDetail = arrayListOf<TransactionDetailEntity>()
         val date = LocalDateTime.now().toString()
-        val number = Random.nextInt() + 3
+        val number = Random.nextInt(0,2000)
 
         checkoutList.forEach {
             transactionDetail.add(
