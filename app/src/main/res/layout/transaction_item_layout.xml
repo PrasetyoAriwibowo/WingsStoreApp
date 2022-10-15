@@ -67,16 +67,16 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/productName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/date"
-                android:hint="Nama Produk"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppinsbold"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"/>
+<!--            <TextView-->
+<!--                android:id="@+id/productName"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/date"-->
+<!--                android:hint="Nama Produk"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:fontFamily="@font/poppinsbold"-->
+<!--                android:textSize="18sp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"/>-->
 
             <TextView
                 android:id="@+id/txt1"
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="18sp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/productName"
+                app:layout_constraintTop_toBottomOf="@id/date"
                 android:text="Total Belanja"
                 app:layout_constraintStart_toStartOf="parent"/>
             <TextView
